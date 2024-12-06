@@ -51,7 +51,7 @@ export class AppHome {
     console.log(this.totalCaps);
   }
 
-  private handleResetClick(event: Event) {
+  private handleResetClick() {
     this.devTrait = 'elite';
     this.totalCaps = 0;
     this.capsGroup1 = 0;
@@ -88,7 +88,7 @@ export class AppHome {
                   <input id={`caps-group-${group}`} type="number" min={0} max={10} value={this[`capsGroup${group}`]} onChange={e => this.handleCapsGroupChange(e, group)} />
                 </div>
               ))}
-              <button onClick={e => this.handleResetClick(e)}> Reset</button>
+              <button onClick={this.handleResetClick}> Reset</button>
             </fieldset>
 
             <div class="form-field__item">
