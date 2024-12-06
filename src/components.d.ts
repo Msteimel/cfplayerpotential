@@ -13,6 +13,10 @@ export namespace Components {
     }
     interface AppRoot {
     }
+    interface ProspectData {
+        "devTrait": 'elite' | 'star' | 'impact' | 'normal';
+        "totalCaps": number;
+    }
 }
 declare global {
     interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
@@ -33,10 +37,17 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLProspectDataElement extends Components.ProspectData, HTMLStencilElement {
+    }
+    var HTMLProspectDataElement: {
+        prototype: HTMLProspectDataElement;
+        new (): HTMLProspectDataElement;
+    };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
+        "prospect-data": HTMLProspectDataElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,10 +58,15 @@ declare namespace LocalJSX {
     }
     interface AppRoot {
     }
+    interface ProspectData {
+        "devTrait"?: 'elite' | 'star' | 'impact' | 'normal';
+        "totalCaps"?: number;
+    }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-profile": AppProfile;
         "app-root": AppRoot;
+        "prospect-data": ProspectData;
     }
 }
 export { LocalJSX as JSX };
@@ -60,6 +76,7 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "prospect-data": LocalJSX.ProspectData & JSXBase.HTMLAttributes<HTMLProspectDataElement>;
         }
     }
 }
