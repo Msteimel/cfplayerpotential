@@ -5,6 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { formFieldProps } from "./components/form-field/form-field";
+export { formFieldProps } from "./components/form-field/form-field";
 export namespace Components {
     interface AppHome {
     }
@@ -12,6 +14,14 @@ export namespace Components {
         "name": string;
     }
     interface AppRoot {
+    }
+    interface FormField {
+        "htmlFor": formFieldProps['htmlFor'];
+        "label": formFieldProps['label'];
+    }
+    interface PlayerForm {
+    }
+    interface PlayerTable {
     }
     interface ProspectData {
         "devTrait": 'elite' | 'star' | 'impact' | 'normal';
@@ -37,6 +47,24 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLFormFieldElement extends Components.FormField, HTMLStencilElement {
+    }
+    var HTMLFormFieldElement: {
+        prototype: HTMLFormFieldElement;
+        new (): HTMLFormFieldElement;
+    };
+    interface HTMLPlayerFormElement extends Components.PlayerForm, HTMLStencilElement {
+    }
+    var HTMLPlayerFormElement: {
+        prototype: HTMLPlayerFormElement;
+        new (): HTMLPlayerFormElement;
+    };
+    interface HTMLPlayerTableElement extends Components.PlayerTable, HTMLStencilElement {
+    }
+    var HTMLPlayerTableElement: {
+        prototype: HTMLPlayerTableElement;
+        new (): HTMLPlayerTableElement;
+    };
     interface HTMLProspectDataElement extends Components.ProspectData, HTMLStencilElement {
     }
     var HTMLProspectDataElement: {
@@ -47,6 +75,9 @@ declare global {
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
+        "form-field": HTMLFormFieldElement;
+        "player-form": HTMLPlayerFormElement;
+        "player-table": HTMLPlayerTableElement;
         "prospect-data": HTMLProspectDataElement;
     }
 }
@@ -58,6 +89,14 @@ declare namespace LocalJSX {
     }
     interface AppRoot {
     }
+    interface FormField {
+        "htmlFor"?: formFieldProps['htmlFor'];
+        "label"?: formFieldProps['label'];
+    }
+    interface PlayerForm {
+    }
+    interface PlayerTable {
+    }
     interface ProspectData {
         "devTrait"?: 'elite' | 'star' | 'impact' | 'normal';
         "totalCaps"?: number;
@@ -66,6 +105,9 @@ declare namespace LocalJSX {
         "app-home": AppHome;
         "app-profile": AppProfile;
         "app-root": AppRoot;
+        "form-field": FormField;
+        "player-form": PlayerForm;
+        "player-table": PlayerTable;
         "prospect-data": ProspectData;
     }
 }
@@ -76,6 +118,9 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "form-field": LocalJSX.FormField & JSXBase.HTMLAttributes<HTMLFormFieldElement>;
+            "player-form": LocalJSX.PlayerForm & JSXBase.HTMLAttributes<HTMLPlayerFormElement>;
+            "player-table": LocalJSX.PlayerTable & JSXBase.HTMLAttributes<HTMLPlayerTableElement>;
             "prospect-data": LocalJSX.ProspectData & JSXBase.HTMLAttributes<HTMLProspectDataElement>;
         }
     }

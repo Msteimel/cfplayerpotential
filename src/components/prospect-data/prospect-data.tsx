@@ -75,9 +75,9 @@ export class ProspectData {
     return (
       <Host>
         <slot></slot>
-        <p>totalCapsValue {this.totalCapsValue}</p>
-        <p>prospectPotential: {prospectPotential}</p>
-        <p>prospectPotentialRating: {prospectPotentialRating}</p>
+        <p>Total Caps Value {this.totalCapsValue}</p>
+        <p>Prospect Potential Score: {prospectPotential}</p>
+        <p>Prospect Potential: {prospectPotentialRating}</p>
       </Host>
     );
   }
