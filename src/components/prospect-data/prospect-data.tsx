@@ -11,10 +11,22 @@ export interface ProspectData {
   shadow: true,
 })
 export class ProspectData {
+  @Prop() playerName: string;
+  @Prop() playerPosition: 'qb' | 'rb' | 'wr' | 'te' | 'lt' | 'lg' | 'c' | 'rg' | 'rt' | 'le' | 'dt' | 're' | 'lolb' | 'mlb' | 'rolb' | 'cb' | 'fs' | 'ss' = 'qb';
   @Prop() devTrait: 'elite' | 'star' | 'impact' | 'normal' = 'elite';
   @Prop() totalCaps: number;
   @State() devTraitValue: number = 10;
   @State() totalCapsValue: number = 10;
+
+  @Watch('playerName')
+  watchHandlerPlayerName(newValue: string) {
+    this.playerName = newValue;
+  }
+
+  @Watch('playerPosition')
+  watchHandlerPlayerPosition(newValue: any) {
+    this.playerPosition = newValue;
+  }
 
   @Watch('devTrait')
   watchHandler(newValue: any) {
@@ -60,7 +72,7 @@ export class ProspectData {
     const prospectPotentialRating: string =
       prospectPotential > 18
         ? 'Heisman Candidate'
-        : prospectPotential > 17
+        : prospectPotential > 16
         ? 'All-American'
         : prospectPotential > 13
         ? 'All-Conference'
@@ -74,8 +86,10 @@ export class ProspectData {
 
     return (
       <Host>
-        <slot></slot>
-        <p>Total Caps Value {this.totalCapsValue}</p>
+        <p>Name: {this.playerName}</p>
+        <p>Player Position: {this.playerPosition.toUpperCase()}</p>
+        <p>Dev Trait: {this.devTrait}</p>
+        <p>Total Caps Value: {this.totalCapsValue}</p>
         <p>Prospect Potential Score: {prospectPotential}</p>
         <p>Prospect Potential: {prospectPotentialRating}</p>
       </Host>

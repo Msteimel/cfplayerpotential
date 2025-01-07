@@ -25,6 +25,8 @@ export namespace Components {
     }
     interface ProspectData {
         "devTrait": 'elite' | 'star' | 'impact' | 'normal';
+        "playerName": string;
+        "playerPosition": 'qb' | 'rb' | 'wr' | 'te' | 'lt' | 'lg' | 'c' | 'rg' | 'rt' | 'le' | 'dt' | 're' | 'lolb' | 'mlb' | 'rolb' | 'cb' | 'fs' | 'ss';
         "totalCaps": number;
     }
 }
@@ -99,6 +101,8 @@ declare namespace LocalJSX {
     }
     interface ProspectData {
         "devTrait"?: 'elite' | 'star' | 'impact' | 'normal';
+        "playerName"?: string;
+        "playerPosition"?: 'qb' | 'rb' | 'wr' | 'te' | 'lt' | 'lg' | 'c' | 'rg' | 'rt' | 'le' | 'dt' | 're' | 'lolb' | 'mlb' | 'rolb' | 'cb' | 'fs' | 'ss';
         "totalCaps"?: number;
     }
     interface IntrinsicElements {

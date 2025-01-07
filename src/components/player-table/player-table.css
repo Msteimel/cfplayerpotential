@@ -1,3 +1,16 @@
 :host {
   display: block;
 }
+
+th {
+  text-align: left;
+}
+
+.row-1 {
+  text-align: left;
+  padding-right: rem;
+}
+
+.row-2 {
+  text-align: left;
+}
