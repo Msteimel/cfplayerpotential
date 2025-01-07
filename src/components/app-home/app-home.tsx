@@ -11,10 +11,10 @@ export class AppHome {
   // Use State to manage dynamic player forms
   @State() playerForms: number[] = [1];
 
-  private handleAddPlayerClick(e: Event) {
-    // Add a new unique player form
-    this.playerForms = [...this.playerForms, this.playerForms.length + 1];
-  }
+  // private handleAddPlayerClick(e: Event) {
+  //   // Add a new unique player form
+  //   this.playerForms = [...this.playerForms, this.playerForms.length + 1];
+  // }
 
   render() {
     return (
